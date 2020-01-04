@@ -13,7 +13,6 @@
     "leaflet": "^1.6.0",
     "leaflet.icon.glyph": "^0.2.1",
     "vue": "^2.6.10",
-    "vue-burger-menu": "^2.0.3",
     "vue2-leaflet": "^2.4.1"
   },
   "devDependencies": {

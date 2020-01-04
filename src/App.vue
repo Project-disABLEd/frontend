@@ -4,12 +4,16 @@
       :is="currentView"
       id="full_div"
     />
+    <sidebar>
+      <!--- Put sidebar content here --->
+    </sidebar>
   </div>
 </template>
 
 <script>
 import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
 import MainMap from '@/components/MainMap.vue'
+import Sidebar from "./components/Sidebar.vue";
 
 export default {
     name: 'App',
@@ -17,7 +21,8 @@ export default {
         LMap,
         LTileLayer,
         LMarker,
-        MainMap
+        MainMap,
+        Sidebar
     },
     data() {
     return {
