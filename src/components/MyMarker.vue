@@ -1,20 +1,19 @@
 <template>
   <l-marker
     :lat-lng="position"
-    :title="title"
     :draggable="false"
+    @click="toggleSidebar"
   >
-    <l-popup :content="text" />
   </l-marker>
 </template>
 
 <script>
-import { LMarker, LPopup } from "vue2-leaflet";
+import { LMarker } from "vue2-leaflet";
+import { mutations } from '../store.js'
 export default {
-  name: "MarkerPopup",
+  name: "MyMarker",
   components: {
     LMarker,
-    LPopup
   },
   props: {
     text: {
@@ -28,6 +27,11 @@ export default {
     title: {
       type: String,
       default: ""
+    }
+  },
+  methods: {
+    toggleSidebar: function() {
+      mutations.toggleNav();
     }
   }
 };

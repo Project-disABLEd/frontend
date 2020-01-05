@@ -9,10 +9,8 @@
         :url="url"
         :attribution="attribution"
       />
-      <marker-popup
-        :position="marker"
-        :text="text"
-        :title="title"
+      <my-marker
+        :position="markerpos"
       />
     </l-map>
   </div>
@@ -21,13 +19,13 @@
 <script>
 import { LMap, LTileLayer } from "vue2-leaflet";
 import { latLng } from "leaflet";
-import MarkerPopup from "./MarkerPopup";
+import MyMarker from "./MyMarker.vue";
 export default {
   name: "MainMap",
   components: {
     LMap,
     LTileLayer,
-    MarkerPopup,
+    MyMarker
   },
   data() {
     return {
@@ -36,9 +34,7 @@ export default {
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      marker: latLng(50.025276, 19.939498),
-      text: "my marker popup text",
-      title: "My marker popup title"
+      markerpos: latLng(50.025276, 19.939498)
     };
   }
 };
