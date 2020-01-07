@@ -1,19 +1,14 @@
 <template>
-  <l-marker
-    :lat-lng="position"
-    :draggable="false"
-    @click="toggleSidebar"
-  >
-  </l-marker>
+  <l-marker :lat-lng="position" :draggable="false" @click="toggleSidebar"></l-marker>
 </template>
 
 <script>
 import { LMarker } from "vue2-leaflet";
-import { mutations } from '../store.js'
+import { mutations } from "../store.js";
 export default {
   name: "MyMarker",
   components: {
-    LMarker,
+    LMarker
   },
   props: {
     text: {
