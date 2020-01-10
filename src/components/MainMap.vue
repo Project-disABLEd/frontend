@@ -1,17 +1,8 @@
 <template>
   <div>
-    <l-map
-      :zoom="zoom"
-      :center="center"
-      style="height: 100%"
-    >
-      <l-tile-layer
-        :url="url"
-        :attribution="attribution"
-      />
-      <my-marker
-        :position="markerpos"
-      />
+    <l-map :zoom="zoom" :center="center" style="height: 100%">
+      <l-tile-layer :url="url" :attribution="attribution" />
+      <my-marker :position="markerpos" />
     </l-map>
   </div>
 </template>
