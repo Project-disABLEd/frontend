@@ -9,14 +9,15 @@
   </div>
 </template>
 <script>
-import { store, mutations } from "@/store.js";
 export default {
   methods: {
-    closeSidebarPanel: mutations.toggleNav
+    closeSidebarPanel() {
+      this.$store.commit("toggleNav");
+    }
   },
   computed: {
     isPanelOpen() {
-      return store.isNavOpen;
+      return this.$store.state.isNavOpen;
     }
   }
 };

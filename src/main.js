@@ -1,4 +1,5 @@
 import Vue from "vue";
+import { store } from './store/store'
 import { Icon } from "leaflet";
 import App from "./App";
 import "leaflet.icon.glyph";
@@ -13,5 +14,6 @@ Icon.Default.mergeOptions({
 });
 
 new Vue({
-  render: h => h(App)
+  store,
+  render: h => h(App),
 }).$mount("#app");

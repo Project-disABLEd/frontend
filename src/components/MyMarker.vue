@@ -4,7 +4,6 @@
 
 <script>
 import { LMarker } from "vue2-leaflet";
-import { mutations } from "../store.js";
 export default {
   name: "MyMarker",
   components: {
@@ -26,7 +25,7 @@ export default {
   },
   methods: {
     toggleSidebar: function() {
-      mutations.toggleNav();
+      this.$store.commit('toggleNav')
     }
   }
 };

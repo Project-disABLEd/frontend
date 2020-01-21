@@ -13,7 +13,8 @@
     "leaflet": "^1.6.0",
     "leaflet.icon.glyph": "^0.2.1",
     "vue": "^2.6.10",
-    "vue2-leaflet": "^2.4.1"
+    "vue2-leaflet": "^2.4.1",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
