@@ -4,6 +4,10 @@ import { Icon } from "leaflet";
 import App from "./App";
 import "leaflet.icon.glyph";
 import "leaflet/dist/leaflet.css";
+import instance from './api'
+import VueAxios from 'vue-axios'
+ 
+Vue.use(VueAxios, instance);
 
 delete Icon.Default.prototype._getIconUrl;
 

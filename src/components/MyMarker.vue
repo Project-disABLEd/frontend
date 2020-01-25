@@ -10,22 +10,18 @@ export default {
     LMarker
   },
   props: {
-    text: {
-      type: String,
-      default: ""
-    },
     position: {
       type: Object,
       default: () => {}
     },
-    title: {
-      type: String,
-      default: ""
+    id: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
     toggleSidebar: function() {
-      this.$store.commit('toggleNav')
+      this.$store.commit('toggleNav', this.id)
     }
   }
 };
