@@ -3,6 +3,7 @@
     <component :is="currentView" id="full_div" />
     <sidebar>
       <!--- Put sidebar content here --->
+      <point-details></point-details>
     </sidebar>
   </div>
 </template>
@@ -10,7 +11,9 @@
 <script>
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import MainMap from "@/components/MainMap.vue";
-import Sidebar from "./components/Sidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import PointDetails from "@/components/PointDetails.vue";
+import MyMarker from "@/components/MyMarker.vue";
 
 export default {
   name: "App",
@@ -19,14 +22,19 @@ export default {
     LTileLayer,
     LMarker,
     MainMap,
-    Sidebar
+    Sidebar,
+    PointDetails,
+    MyMarker
   },
   data() {
     return {
       currentView: "MainMap"
     };
-  }
-};
+  },
+  created: async function() {
+      this.$store.dispatch("apiInit")
+    }
+  };
 </script>
 
 <style>

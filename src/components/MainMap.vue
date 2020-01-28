@@ -2,7 +2,9 @@
   <div>
     <l-map :zoom="zoom" :center="center" style="height: 100%">
       <l-tile-layer :url="url" :attribution="attribution" />
-      <my-marker :position="markerpos" />
+      <div v-for="(pos, ind) in markerPositions" :key="ind">
+        <my-marker :position="pos" :id="IDs[ind]"/>
+      </div>
     </l-map>
   </div>
 </template>
@@ -24,9 +26,16 @@ export default {
       center: latLng(50.06465, 19.94498),
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      markerpos: latLng(50.025276, 19.939498)
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     };
+  },
+  computed: {
+    markerPositions() {
+      return this.$store.getters.getPositions;
+    },
+    IDs() {
+      return this.$store.getters.getIDs;
+    }
   }
 };
 </script>
