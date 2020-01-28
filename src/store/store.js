@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import instance from "@/api";
+import L from "leaflet";
 
 Vue.use(Vuex);
 
@@ -37,6 +39,24 @@ export const store = new Vuex.Store({
     },
     getIDs: state => {
       return state.ids;
+    }
+  },
+  actions: {
+    async apiInit(context) {
+        var response = await instance.get(process.env.VUE_APP_HOSTNAME + "points/", {
+          params: {}
+        });
+        const json = response.data.results;
+        const count = response.data.count;
+        json.forEach(point => context.commit('pushPoints', point));
+        var i;
+        for (i = 0; i < count; i++) {
+          context.commit('pushPositions', L.latLng(
+          json[i].latitude,
+          json[i].longitude
+        ));
+        context.commit('pushIDs', json[i].ID);
+      }
     }
   }
 })
