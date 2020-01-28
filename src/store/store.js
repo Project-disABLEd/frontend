@@ -21,13 +21,13 @@ export const store = new Vuex.Store({
       }
     },
     pushPoints: (state, dataPoint) => {
-      state.points.push(dataPoint)
+      state.points.push(dataPoint);
     },
     pushPositions: (state, data) => {
-      state.positions.push(data)
+      state.positions.push(data);
     },
     pushIDs: (state, data) => {
-      state.ids.push(data)
+      state.ids.push(data);
     }
   },
   getters: {
@@ -59,4 +59,4 @@ export const store = new Vuex.Store({
       }
     }
   }
-})
+});
