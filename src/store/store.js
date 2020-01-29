@@ -20,6 +20,12 @@ export const store = new Vuex.Store({
         state.currentID = id;
       }
     },
+    setNav(state, payload) {
+      state.isNavOpen = payload.value;
+      if (payload.id && state.isNavOpen === true) {
+        state.currentID = payload.id;
+      }
+    },
     pushPoints: (state, dataPoint) => {
       state.points.push(dataPoint);
     },
