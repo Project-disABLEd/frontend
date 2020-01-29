@@ -1,6 +1,6 @@
 <template>
   <div>
-    <l-map :zoom="zoom" :center="center" style="height: 100%">
+    <l-map @click="setSidebar" :zoom="zoom" :center="center" style="height: 100%">
       <l-tile-layer :url="url" :attribution="attribution" />
       <div v-for="(pos, ind) in markerPositions" :key="ind">
         <my-marker :position="pos" :id="IDs[ind]"/>
@@ -35,6 +35,11 @@ export default {
     },
     IDs() {
       return this.$store.getters.getIDs;
+    }
+  },
+  methods: {
+    setSidebar: function() {
+      this.$store.commit('setNav', {id: undefined, value: false})
     }
   }
 };

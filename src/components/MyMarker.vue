@@ -1,5 +1,5 @@
 <template>
-  <l-marker :lat-lng="position" :draggable="false" @click="toggleSidebar"></l-marker>
+  <l-marker @click="setSidebar" :lat-lng="position" :draggable="false"></l-marker>
 </template>
 
 <script>
@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    toggleSidebar: function() {
-      this.$store.commit('toggleNav', this.id)
+    setSidebar: function() {
+      this.$store.commit('setNav', {id: this.id, value: true})
     }
   }
 };
