@@ -1,32 +1,27 @@
 <template>
-  <l-marker :lat-lng="position" :draggable="false" @click="toggleSidebar"></l-marker>
+  <l-marker @click="setSidebar" :lat-lng="position" :draggable="false"></l-marker>
 </template>
 
 <script>
 import { LMarker } from "vue2-leaflet";
-import { mutations } from "../store.js";
 export default {
   name: "MyMarker",
   components: {
     LMarker
   },
   props: {
-    text: {
-      type: String,
-      default: ""
-    },
     position: {
       type: Object,
       default: () => {}
     },
-    title: {
-      type: String,
-      default: ""
+    id: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
-    toggleSidebar: function() {
-      mutations.toggleNav();
+    setSidebar: function() {
+      this.$store.commit('setNav', {id: this.id, value: true})
     }
   }
 };
