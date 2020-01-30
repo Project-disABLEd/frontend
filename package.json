@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "buefy": "^0.8.8",
+    "bulma": "^0.8.0",
     "core-js": "^3.4.3",
     "leaflet": "^1.6.0",
     "leaflet.icon.glyph": "^0.2.1",

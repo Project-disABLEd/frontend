@@ -1,12 +1,15 @@
 import Vue from "vue";
-import { store } from './store/store'
+import { store } from './store/store';
 import { Icon } from "leaflet";
 import App from "./App";
 import "leaflet.icon.glyph";
 import "leaflet/dist/leaflet.css";
-import instance from './api'
-import VueAxios from 'vue-axios'
- 
+import instance from './api';
+import VueAxios from 'vue-axios';
+import Buefy from 'buefy';
+import 'buefy/dist/buefy.css';
+
+Vue.use(Buefy);
 Vue.use(VueAxios, instance);
 
 delete Icon.Default.prototype._getIconUrl;
