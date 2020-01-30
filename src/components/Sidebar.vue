@@ -30,7 +30,7 @@ export default {
 
 .slide-enter,
 .slide-leave-to {
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: all 150ms ease-in 0s;
 }
 
@@ -49,11 +49,11 @@ export default {
   overflow-y: auto;
   background-color: #ffffff;
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
   height: 100vh;
   z-index: 999;
   padding: 3rem 20px 2rem 20px;
-  width: 300px;
+  width: 350px;
 }
 </style>

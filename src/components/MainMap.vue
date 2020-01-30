@@ -1,6 +1,7 @@
 <template>
   <div>
-    <l-map @click="setSidebar" :zoom="zoom" :center="center" style="height: 100%">
+    <l-map style="height: 100%; width: 100%" @click="setSidebar" :zoom="zoom" :center="center" :options="{zoomControl: false}">
+      <l-control-zoom position="topright"></l-control-zoom>
       <l-tile-layer :url="url" :attribution="attribution" />
       <div v-for="(pos, ind) in markerPositions" :key="ind">
         <my-marker :position="pos" :id="IDs[ind]"/>
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-import { LMap, LTileLayer } from "vue2-leaflet";
+import { LMap, LTileLayer, LControlZoom } from "vue2-leaflet";
 import { latLng } from "leaflet";
 import MyMarker from "./MyMarker.vue";
 export default {
@@ -18,7 +19,8 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    MyMarker
+    MyMarker,
+    LControlZoom
   },
   data() {
     return {
