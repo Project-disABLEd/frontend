@@ -10,7 +10,7 @@
           aria-controls="contentIdForA11y3">
           <a class="card-header-icon">
             <b-icon v-if="levelOfSupport === 2" class="fas fa-thumbs-up"></b-icon>
-            <b-icon v-if="levelOfSupport === 1" class="fas fa-slash"></b-icon>
+            <b-icon v-if="levelOfSupport === 1" class="fas fa-exclamation-triangle"></b-icon>
             <b-icon v-if="levelOfSupport === 0" class="fas fa-question-circle"></b-icon>
             <b-icon v-if="levelOfSupport === -1" class="fas fa-thumbs-down"></b-icon>
           </a>
