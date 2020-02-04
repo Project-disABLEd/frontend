@@ -49,7 +49,7 @@ export const store = new Vuex.Store({
   },
   actions: {
     async apiInit(context) {
-        var response = await instance.get(process.env.VUE_APP_HOSTNAME + "points/", {
+        var response = await instance.get(process.env.VUE_APP_HOSTNAME + "/points/", {
           params: {}
         });
         const json = response.data.results;
