@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="currentView" id="full_div" />
+    <main-map id="full_div"></main-map>
     <sidebar>
       <!--- Put sidebar content here --->
       <point-details></point-details>
@@ -9,22 +9,16 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import MainMap from "@/components/MainMap.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import PointDetails from "@/components/PointDetails.vue";
-import MyMarker from "@/components/MyMarker.vue";
 
 export default {
   name: "App",
   components: {
-    LMap,
-    LTileLayer,
-    LMarker,
     MainMap,
     Sidebar,
-    PointDetails,
-    MyMarker
+    PointDetails
   },
   data() {
     return {
