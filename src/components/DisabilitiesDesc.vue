@@ -17,9 +17,6 @@
           <p class="card-header-title">
             {{disability}}
           </p>
-          <a class="card-header-icon">
-            <b-icon class="fas fa-wheelchair"></b-icon>
-          </a>
           <a v-if="!!desc" class="card-header-icon">
             <b-icon
               :icon="props.open ? 'menu-down' : 'menu-up'">

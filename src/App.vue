@@ -1,30 +1,27 @@
 <template>
   <div>
-    <component :is="currentView" id="full_div" />
+    <main-map id="full_div"></main-map>
     <sidebar>
       <!--- Put sidebar content here --->
+      <div style="text-align: right" @click="setSidebar">
+        <b-icon icon="close" size="is-medium"></b-icon>
+      </div>
       <point-details></point-details>
     </sidebar>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import MainMap from "@/components/MainMap.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import PointDetails from "@/components/PointDetails.vue";
-import MyMarker from "@/components/MyMarker.vue";
 
 export default {
   name: "App",
   components: {
-    LMap,
-    LTileLayer,
-    LMarker,
     MainMap,
     Sidebar,
-    PointDetails,
-    MyMarker
+    PointDetails
   },
   data() {
     return {
@@ -32,9 +29,14 @@ export default {
     };
   },
   created: async function() {
-      this.$store.dispatch("apiInit")
+    this.$store.dispatch("apiInit");
+  },
+  methods: {
+    setSidebar: function() {
+      this.$store.commit("setNav", { id: undefined, value: false });
     }
-  };
+  }
+};
 </script>
 
 <style>
@@ -51,7 +53,7 @@ body {
   font-family: Helvetica, Verdana, sans-serif;
 }
 #full_div {
-  position: absolute;
+  position: fixed;
   overflow-x: auto;
   top: 0;
   right: 0;
