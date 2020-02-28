@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
   },
   getters: {
     getCurrentPoint: state => {
-      return state.points.find((point) => point.ID === state.currentID);
+      return state.points.find(point => point.ID === state.currentID);
     },
     getPositions: state => {
       return state.positions;
@@ -49,19 +49,21 @@ export const store = new Vuex.Store({
   },
   actions: {
     async apiInit(context) {
-        var response = await instance.get(process.env.VUE_APP_HOSTNAME + "/points/", {
+      var response = await instance.get(
+        process.env.VUE_APP_HOSTNAME + "/points/",
+        {
           params: {}
-        });
-        const json = response.data.results;
-        const count = response.data.count;
-        json.forEach(point => context.commit('pushPoints', point));
-        var i;
-        for (i = 0; i < count; i++) {
-          context.commit('pushPositions', L.latLng(
-          json[i].latitude,
-          json[i].longitude
-        ));
-        context.commit('pushIDs', json[i].ID);
+        }
+      );
+      const json = response.data.results;
+      const count = response.data.count;
+      json.forEach(point => context.commit("pushPoints", point));
+      for (let i = 0; i < count; i++) {
+        context.commit(
+          "pushPositions",
+          L.latLng(json[i].latitude, json[i].longitude)
+        );
+        context.commit("pushIDs", json[i].ID);
       }
     }
   }
