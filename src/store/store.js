@@ -55,8 +55,8 @@ export const store = new Vuex.Store({
           params: {}
         }
       );
-      const json = response.data.results;
-      const count = response.data.count;
+      const json = response.data;
+      const count = Object.keys(response).length;
       json.forEach(point => context.commit("pushPoints", point));
       for (let i = 0; i < count; i++) {
         context.commit(
