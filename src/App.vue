@@ -29,7 +29,7 @@ export default {
     };
   },
   async created() {
-    this.$store.dispatch("apiInit");
+    await this.$store.dispatch("apiInit");
   },
   methods: {
     setSidebar: function() {
