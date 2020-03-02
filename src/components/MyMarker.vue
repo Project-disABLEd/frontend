@@ -20,8 +20,9 @@ export default {
     }
   },
   methods: {
-    setSidebar: function() {
-      this.$store.commit('setNav', {id: this.id, value: true})
+    async setSidebar() {
+      await this.$store.dispatch("getCurrentPoint", this.id);
+      this.$store.commit('setNav', {id: this.id, value: true});
     }
   }
 };

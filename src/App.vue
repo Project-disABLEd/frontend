@@ -28,7 +28,7 @@ export default {
       currentView: "MainMap"
     };
   },
-  created: async function() {
+  async created() {
     this.$store.dispatch("apiInit");
   },
   methods: {
@@ -55,6 +55,7 @@ body {
 #full_div {
   position: fixed;
   overflow-x: auto;
+  overflow-y: hidden;
   top: 0;
   right: 0;
   left: 0;
