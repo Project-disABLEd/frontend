@@ -1,0 +1,3 @@
+[submodule "public/about"]
+	path = public/about
+	url = https://github.com/Project-disABLEd/landing-page
