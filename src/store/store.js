@@ -72,7 +72,6 @@ export const store = new Vuex.Store({
     },
     async getCurrentPoint(context, id) {
       let currentID = id;
-      console.log(currentID);
       let response = await instance.get(
         process.env.VUE_APP_HOSTNAME + "/points/" + currentID,
         {
