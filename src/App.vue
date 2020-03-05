@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar></navbar>
     <main-map id="full_div"></main-map>
     <sidebar>
       <!--- Put sidebar content here --->
@@ -15,13 +16,15 @@
 import MainMap from "@/components/MainMap.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import PointDetails from "@/components/PointDetails.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   name: "App",
   components: {
     MainMap,
     Sidebar,
-    PointDetails
+    PointDetails,
+    Navbar
   },
   data() {
     return {
@@ -60,5 +63,8 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
+}
+navbar {
+  z-index: 10;
 }
 </style>

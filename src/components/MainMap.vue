@@ -1,7 +1,6 @@
 <template>
   <div>
     <l-map
-      style="height: 100%; width: 100%"
       @click="setSidebar"
       :zoom="zoom"
       :center="center"
