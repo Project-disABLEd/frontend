@@ -4,14 +4,32 @@ handlers:
   # Serve all static files with urls ending with a file extension
 - url: /(.*\..+)$ 
   static_files: dist/\1
+  secure: always
+  http_headers:
+      Strict-Transport-Security: max-age=63072000
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      X-XSS-Protection: 1; mode=block
   upload: dist/(.*\..+)$  
   
   # catch all handler to index.html
 - url: /.*
   static_files: dist/index.html
+  secure: always
+  http_headers:
+      Strict-Transport-Security: max-age=63072000
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      X-XSS-Protection: 1; mode=block
   upload: dist/index.html
 
   # catch all handler to index.html
 - url: /about/.*
   static_files: dist/about/index.html
+  secure: always
+  http_headers:
+      Strict-Transport-Security: max-age=63072000
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: DENY
+      X-XSS-Protection: 1; mode=block
   upload: dist/about/index.html
