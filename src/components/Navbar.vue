@@ -14,9 +14,9 @@
       <b-navbar-item href="./about/kontakt.html">Kontakt</b-navbar-item>
     </template>
     <template slot="end">
-      <b-navbar-item tag="div" href="https://github.com/Project-disABLEd/">
+      <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary" href="https://github.com/Project-disABLEd/">
             <b-icon class="fab fa-github"></b-icon>
             <strong>Repozytorium</strong>
           </a>
