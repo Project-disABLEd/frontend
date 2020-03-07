@@ -5,7 +5,7 @@
     <sidebar>
       <!--- Put sidebar content here --->
       <div style="text-align: right" @click="setSidebar">
-        <b-icon icon="close" size="is-medium"></b-icon>
+        <b-icon icon="close" size="is-medium" style="cursor: pointer"></b-icon>
       </div>
       <point-details></point-details>
     </sidebar>
