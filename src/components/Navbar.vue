@@ -9,9 +9,9 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item href="./about/index.html">O nas</b-navbar-item>
-      <b-navbar-item href="./about/jak-pomoc.html">Jak pomóc?</b-navbar-item>
-      <b-navbar-item href="./about/kontakt.html">Kontakt</b-navbar-item>
+      <b-navbar-item href="/about/index.html">O nas</b-navbar-item>
+      <b-navbar-item href="/about/jak-pomoc.html">Jak pomóc?</b-navbar-item>
+      <b-navbar-item href="/about/kontakt.html">Kontakt</b-navbar-item>
     </template>
     <template slot="end">
       <b-navbar-item tag="div">
