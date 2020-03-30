@@ -1,10 +1,11 @@
 <template>
   <div>
+    <navbar></navbar>
     <main-map id="full_div"></main-map>
     <sidebar>
       <!--- Put sidebar content here --->
       <div style="text-align: right" @click="setSidebar">
-        <b-icon icon="close" size="is-medium"></b-icon>
+        <b-icon icon="close" size="is-medium" style="cursor: pointer"></b-icon>
       </div>
       <point-details></point-details>
     </sidebar>
@@ -15,21 +16,23 @@
 import MainMap from "@/components/MainMap.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import PointDetails from "@/components/PointDetails.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   name: "App",
   components: {
     MainMap,
     Sidebar,
-    PointDetails
+    PointDetails,
+    Navbar
   },
   data() {
     return {
       currentView: "MainMap"
     };
   },
-  created: async function() {
-    this.$store.dispatch("apiInit");
+  async created() {
+    await this.$store.dispatch("apiInit");
   },
   methods: {
     setSidebar: function() {
@@ -55,9 +58,13 @@ body {
 #full_div {
   position: fixed;
   overflow-x: auto;
+  overflow-y: hidden;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+}
+navbar {
+  z-index: 10;
 }
 </style>

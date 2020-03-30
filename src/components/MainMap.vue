@@ -1,13 +1,12 @@
 <template>
   <div>
     <l-map
-      style="height: 100%; width: 100%"
       @click="setSidebar"
       :zoom="zoom"
       :center="center"
       :options="{zoomControl: false}"
     >
-      <l-control-zoom position="topright"></l-control-zoom>
+      <l-control-zoom position="bottomright"></l-control-zoom>
       <l-tile-layer :url="url" :attribution="attribution" />
       <v-marker-cluster>
         <div v-for="(pos, ind) in markerPositions" :key="ind">

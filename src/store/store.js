@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     points: [],
     positions: [],
     ids: [],
+    currentPoint: [],
     currentID: 0
   },
   mutations: {
@@ -34,11 +35,14 @@ export const store = new Vuex.Store({
     },
     pushIDs: (state, data) => {
       state.ids.push(data);
+    },
+    setCurrentPoint: (state, data) => {
+      state.currentPoint = data;
     }
   },
   getters: {
     getCurrentPoint: state => {
-      return state.points.find(point => point.ID === state.currentID);
+      return state.currentPoint;
     },
     getPositions: state => {
       return state.positions;
@@ -49,14 +53,14 @@ export const store = new Vuex.Store({
   },
   actions: {
     async apiInit(context) {
-      var response = await instance.get(
+      let response = await instance.get(
         process.env.VUE_APP_HOSTNAME + "/points/",
         {
           params: {}
         }
       );
-      const json = response.data.results;
-      const count = response.data.count;
+      const json = response.data;
+      const count = Object.keys(response.data).length;
       json.forEach(point => context.commit("pushPoints", point));
       for (let i = 0; i < count; i++) {
         context.commit(
@@ -65,6 +69,16 @@ export const store = new Vuex.Store({
         );
         context.commit("pushIDs", json[i].ID);
       }
+    },
+    async getCurrentPoint(context, id) {
+      let currentID = id;
+      let response = await instance.get(
+        process.env.VUE_APP_HOSTNAME + "/points/" + currentID,
+        {
+          params: {}
+        }
+      );
+      context.commit("setCurrentPoint", response.data);
     }
   }
 });
