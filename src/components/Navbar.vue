@@ -3,7 +3,7 @@
     <template slot="brand">
       <b-navbar-item href="/">
         <img
-          src="../../public/about/assets/logo_full.png"
+          src="./../assets/logo_full.png"
           alt="Projekt disABLEd - mapa dla niepełnosprawnych"
         />
       </b-navbar-item>

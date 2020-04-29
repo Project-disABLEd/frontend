@@ -4,7 +4,12 @@
       @click="setSidebar"
       :zoom="zoom"
       :center="center"
-      :options="{zoomControl: false}"
+      :options="{
+        zoomControl: false,
+        zoomControlOptions: {
+          position: 6
+        }
+      }"
     >
       <l-control-zoom position="bottomright"></l-control-zoom>
       <l-tile-layer :url="url" :attribution="attribution" />

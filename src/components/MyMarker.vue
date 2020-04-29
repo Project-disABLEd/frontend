@@ -9,6 +9,11 @@ export default {
   components: {
     LMarker
   },
+  data(){
+    return{
+      loading: true
+    }
+  },
   props: {
     position: {
       type: Object,

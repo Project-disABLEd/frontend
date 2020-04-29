@@ -54,7 +54,7 @@ export const store = new Vuex.Store({
   actions: {
     async apiInit(context) {
       let response = await instance.get(
-        process.env.VUE_APP_HOSTNAME + "/points/",
+        "127.0.0.1:8000" + "/points/",
         {
           params: {}
         }
@@ -73,7 +73,7 @@ export const store = new Vuex.Store({
     async getCurrentPoint(context, id) {
       let currentID = id;
       let response = await instance.get(
-        process.env.VUE_APP_HOSTNAME + "/points/" + currentID,
+        "127.0.0.1:8000" + "/points/" + currentID,
         {
           params: {}
         }
